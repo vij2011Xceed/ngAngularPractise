@@ -1,0 +1,45 @@
+<h1>{{getFullName() | uppercase}}</h1>
+<table style="border-radius: 50px;">
+    <tr>
+        <td [attr.colspan]='colspanEmp'>
+            <img src='{{imgSrc}}' style="height: 105px;width: 160px;"/>
+        </td>
+    </tr>
+    <tr>
+        <td>FirstName</td>
+        <td><input type="text" id="txtFirstName" [(ngModel)]='firstName' [value]='firstName' style="border-radius: 10px;">   </td>
+    </tr>
+    <tr>
+        <td>LastName</td>
+        <td>{{lastName}}</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>{{gender | uppercase}}</td>
+    </tr>
+    <tr *ngIf='showDetails'>
+        <td>Age</td>
+        <td>{{age}}</td>
+    </tr>
+    <tr >
+        <td colspan="2">
+            <input type="button" id="btnBackList" [attr.value]='details' style="margin-left: 25px;" 
+            class="colorClass" [class]='classestoApply' (click)='TrackOnClick();toggleDetails()'>
+        </td>
+    </tr>
+    <tr>
+        <td  >
+            You entered: {{firstName}}
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>
+            <app-employee-count [maleCountToChildFromParent]=getMaleCountFromParent()>
+            </app-employee-count>
+        </td>
+    </tr>
+</table>
+
